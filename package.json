@@ -1,0 +1,19 @@
+{
+  "name": "johnsfootballshirts",
+  "version": "1.0.0",
+  "description": "Football Shirt Website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnmendez2/johnsfootballshirts.git"
+  },
+  "author": "John",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnmendez2/johnsfootballshirts/issues"
+  },
+  "homepage": "https://github.com/johnmendez2/johnsfootballshirts#readme"
+}
