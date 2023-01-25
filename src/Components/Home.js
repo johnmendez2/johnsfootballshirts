@@ -95,6 +95,57 @@ export const Home = (props) => {
             }
         })       
     },[])  
+
+    // categories list rendering using span tag
+    const [spans]=useState([
+        {id: 'PremierLeague', text: 'Premier League'},
+        {id: 'Laliga', text: 'LaLiga'},
+        {id: 'Ligue1', text: 'Ligue 1'},
+        {id: 'International', text: 'International'},
+        {id: 'HealthAndBeauty', text: 'Health & Beauty'},
+        {id: 'HomeAndLifestyle', text: 'Home & Lifestyle'},
+        {id: 'MensFashion', text: `Men's Fashion`},
+        {id: 'WatchesBagsAndJewellery', text: `Watches, bags & Jewellery`},
+        {id: 'Groceries', text: 'Groceries'},             
+    ])
+
+    // active class state
+    const [active, setActive]=useState('');
+
+    // category state
+    const [category, setCategory]=useState('');
+
+    // handle change ... it will set category and active states
+    const handleChange=(individualSpan)=>{
+        setActive(individualSpan.id);
+        setCategory(individualSpan.text);
+        filterFunction(individualSpan.text);
+    }
+
+    // filtered products state
+    const [filteredProducts, setFilteredProducts]=useState([]);
+
+    // filter function
+    const filterFunction = (text)=>{
+        if(products.length>1){
+            const filter=products.filter((product)=>product.category===text);
+            setFilteredProducts(filter);
+        }
+        else{
+            console.log('no products to filter')
+        } 
+    }
+
+    // return to all products
+    const returntoAllProducts=()=>{
+        setActive('');
+        setCategory('');
+        setFilteredProducts([]);
+    }
+
+
+
+
     return (
         <>
             <Navbar user={user} totalProducts={totalProducts}/>
