@@ -1,19 +1,50 @@
 {
-  "name": "johnsfootballshirts",
-  "version": "1.0.0",
-  "description": "Football Shirt Website",
-  "main": "app.js",
+  "name": "grails",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.3",
+    "firebase": "^9.16.0",
+    "framer-motion": "^6.3.15",
+    "img-cube": "^1.0.2",
+    "mjml-navbar": "^4.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons-kit": "^2.0.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.7.0",
+    "react-scripts": "^5.0.1",
+    "react-toastify": "8.2.0",
+    "reactjs-popup": "^2.0.5",
+    "styled-components": "^5.3.5",
+    "sweetalert2": "^11.7.1",
+    "web-vitals": "^2.1.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/johnmendez2/johnsfootballshirts.git"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "author": "John",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/johnmendez2/johnsfootballshirts/issues"
-  },
-  "homepage": "https://github.com/johnmendez2/johnsfootballshirts#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }

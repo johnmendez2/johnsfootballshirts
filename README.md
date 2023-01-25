@@ -1,2 +1,2 @@
-# johnsfootballshirts
-Football Shirt Website
+# Grails
+Football Shirt Collecting, but Portable!

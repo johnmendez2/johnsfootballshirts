@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "Bratsy";
+    src: url(../../public/fonts/BratsyScriptDemo.ttf);
+  }
+
+  #txt{
+    font-family: 'Bratsy';
+    color: rgb(212, 186, 41);
+    -webkit-text-stroke: 1.2px black;
+    font-size: 80px;
+  }
+
+  #label1{
+    font-family: 'Bratsy';
+    color: rgb(212, 186, 41);
+    -webkit-text-stroke: 1.2px black;
+    font-size: 50px;
+    cursor: default;
+  }
+  #label2{
+    font-family: 'Bratsy';
+    color: rgb(212, 186, 41);
+    -webkit-text-stroke: 1.2px black;
+    font-size: 40px;
+    cursor: default;
+  }
+
+  .text-center{
+    font-family: 'Bratsy';
+    color: rgb(212, 186, 41);
+    -webkit-text-stroke: 1.2px black;
+    font-size: 50px;
+    cursor:default;
+  }
+  @media(min-width: 768px){
+    
+  .prodimg{
+    width: 700px;
+    height: 700px;
+    padding: 5%;
+    float: left;
+  }
+
+  .title{
+    font-weight: 1000%;
+    font-size: 40px;
+    padding-bottom: 3%;
+  }
+  .price{
+    font-size: 30px;
+    padding-left: 20%;
+    float: center;
+  }
+  .prodbtn{
+    float: left;
+    padding-right: 4%;
+  }
+  .desc{
+    font-size: 20px;
+    margin-top: 4%;
+    margin-bottom: 16px;
+    position: relative;
+    
+  }
+  .productsbox{
+    padding: 4% 12%;
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    
+  }
+  .productPrev{
+    width: 50%;
+  }
+  .productData{
+    width: 50%;
+  }
+  }
+  @media(max-width: 450px){
+    .prodimg{
+      width: 300px;
+      height: 300px;
+      padding: 3%;
+    }
+    .productsbox{
+      width: 100%;
+      padding: 6% 10%;
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      align-items: left;
+      flex-wrap: wrap;
+      margin-top: 50px;
+      background-color: rgb(255, 255, 255);
+    }
+    .desc{
+      font-size: 20px;
+      padding-top: 3%;
+    }
+    .title{
+      font-weight: 1000%;
+      font-size: 40px;
+    }
+    .price{
+      font-size: 30px;
+      padding-right: 55px;
+      padding-top: 1%;
+      float: right;
+    }
+    .productData{
+      width: 100%;
+    }
+  }
