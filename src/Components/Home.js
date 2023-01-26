@@ -3,7 +3,7 @@ import {Navbar} from './Navbar'
 import  Products  from './Products'
 import { auth,fs } from '../Config/config';
 import { useNavigate } from 'react-router-dom';
-import Productpage from './Productpage';
+import { IndividualFilteredProduct } from './IndividualFilteredProducts';
 
 export const Home = (props) => {
     const history = useNavigate();
@@ -98,15 +98,11 @@ export const Home = (props) => {
 
     // categories list rendering using span tag
     const [spans]=useState([
-        {id: 'PremierLeague', text: 'Premier League'},
-        {id: 'Laliga', text: 'LaLiga'},
-        {id: 'Ligue1', text: 'Ligue 1'},
-        {id: 'International', text: 'International'},
-        {id: 'HealthAndBeauty', text: 'Health & Beauty'},
-        {id: 'HomeAndLifestyle', text: 'Home & Lifestyle'},
-        {id: 'MensFashion', text: `Men's Fashion`},
-        {id: 'WatchesBagsAndJewellery', text: `Watches, bags & Jewellery`},
-        {id: 'Groceries', text: 'Groceries'},             
+        {id:'All', text: 'All'},
+        {id: 'PremierLeague', text: 'Premierleague'},
+        {id: 'LaLiga', text: 'Laliga'},
+        {id: 'Ligue1', text: 'Ligue1'},
+        {id: 'International', text: 'International'},           
     ])
 
     // active class state
@@ -128,7 +124,7 @@ export const Home = (props) => {
     // filter function
     const filterFunction = (text)=>{
         if(products.length>1){
-            const filter=products.filter((product)=>product.category===text);
+            const filter=products.filter((product)=>product.league===text);
             setFilteredProducts(filter);
         }
         else{
@@ -146,21 +142,65 @@ export const Home = (props) => {
 
 
 
+    // return (
+    //     <>
+    //         <Navbar user={user} totalProducts={totalProducts}/>
+    //         <br></br>
+    //         {products.length > 0 && (
+    //             <div className='container-fluid'>
+    //                 <h1 className='text-center'>Collection</h1>
+    //                 <div className='products-box'>
+    //                     <Products products={products} addToCart={addToCart}/>
+    //                 </div>
+    //             </div>
+    //         )}
+    //         {products.length < 1 && (
+    //             <div className='container-fluid'></div>
+    //         )}
+    //     </>
+    // )
     return (
         <>
-            <Navbar user={user} totalProducts={totalProducts}/>
+            <Navbar user={user} totalProducts={totalProducts}/>           
             <br></br>
-            {products.length > 0 && (
-                <div className='container-fluid'>
-                    <h1 className='text-center'>Collection</h1>
-                    <div className='products-box'>
-                        <Products products={products} addToCart={addToCart}/>
-                    </div>
+            <div className='container-fluid filter-products-main-box'>
+                <div className='filter-box'>
+                    <h6>Filter by category</h6>
+                    {spans.map((individualSpan,index)=>(
+                        <span key={index} id={individualSpan.id}
+                        onClick={()=>handleChange(individualSpan)}
+                        className={individualSpan.id===active ? active:'deactive'}>{individualSpan.id}</span>
+                    ))}
                 </div>
-            )}
-            {products.length < 1 && (
-                <div className='container-fluid'></div>
-            )}
+                {filteredProducts.length > 0&&(
+                  <div className='my-products'>
+                      <h1 className='text-center'>{category}</h1>
+                      <a className="return" href="javascript:void(0)" onClick={returntoAllProducts} >Return to All Products</a>
+                      <div className='products-box'>
+                          {filteredProducts.map(individualFilteredProduct=>(
+                              <IndividualFilteredProduct key={individualFilteredProduct.ID}
+                              individualFilteredProduct={individualFilteredProduct}
+                              addToCart={addToCart}/>
+                          ))}
+                      </div>
+                  </div>  
+                )}
+                {filteredProducts.length < 1&&(
+                    <>
+                        {products.length > 0&&(
+                            <div className='my-products'>
+                                <h1 className='text-center'>Collection</h1>
+                                <div className='products-box'>
+                                    <Products products={products} addToCart={addToCart}/>
+                                </div>
+                            </div>
+                        )}
+                        {products.length < 1&&(
+                            <div className='my-products please-wait'>Please wait...</div>
+                        )}
+                    </>
+                )}
+            </div>       
         </>
     )
 }
