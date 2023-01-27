@@ -4,7 +4,7 @@ import  Products  from './Products'
 import { auth,fs } from '../Config/config';
 import { useNavigate } from 'react-router-dom';
 import { IndividualFilteredProduct } from './IndividualFilteredProducts';
-
+import '../index.css';
 export const Home = (props) => {
     const history = useNavigate();
     function GetUserUid(){
@@ -142,35 +142,29 @@ export const Home = (props) => {
 
 
 
-    // return (
-    //     <>
-    //         <Navbar user={user} totalProducts={totalProducts}/>
-    //         <br></br>
-    //         {products.length > 0 && (
-    //             <div className='container-fluid'>
-    //                 <h1 className='text-center'>Collection</h1>
-    //                 <div className='products-box'>
-    //                     <Products products={products} addToCart={addToCart}/>
-    //                 </div>
-    //             </div>
-    //         )}
-    //         {products.length < 1 && (
-    //             <div className='container-fluid'></div>
-    //         )}
-    //     </>
-    // )
     return (
         <>
             <Navbar user={user} totalProducts={totalProducts}/>           
             <br></br>
             <div className='container-fluid filter-products-main-box'>
-                <div className='filter-box'>
-                    <h6>Filter by category</h6>
+                <div className='filter-box' >
+                    {/* <h6>Filter by category</h6>
                     {spans.map((individualSpan,index)=>(
                         <span key={index} id={individualSpan.id}
                         onClick={()=>handleChange(individualSpan)}
                         className={individualSpan.id===active ? active:'deactive'}>{individualSpan.id}</span>
-                    ))}
+                    ))} */}
+
+                    <div class="dropdown">
+                    <button class="dropbtn">Filter by League</button>
+                    <div class="dropdown-content">
+                        {spans.map((individualSpan,index)=>(
+                            <a key={index} id={individualSpan.id}
+                            onClick={()=>handleChange(individualSpan)}
+                            className={individualSpan.id===active ? active:'deactive'}>{individualSpan.id}</a>
+                        ))}
+                    </div>
+                    </div>
                 </div>
                 {filteredProducts.length > 0&&(
                   <div className='my-products'>

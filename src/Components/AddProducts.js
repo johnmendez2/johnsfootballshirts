@@ -8,7 +8,7 @@ export const AddProducts = () => {
     const [price, setPrice]=useState('');
     const [league, setLeague]=useState('');
     const [size, setSize]=useState('');
-    const [igurl, setIgurl]=useState('');
+    const [url2, setUrl2]=useState('');
     const [image, setImage]=useState(null);
 
     const [imageError, setImageError]=useState('');
@@ -52,8 +52,8 @@ export const AddProducts = () => {
                     price: Number(price),
                     league,
                     size,
-                    igurl,
                     url,
+                    url2,
                 }).then(()=>{
                     setSuccessMsg('Product added successfully');
                     setTitle('');
@@ -61,7 +61,7 @@ export const AddProducts = () => {
                     setPrice('');
                     setLeague('');
                     setSize('');
-                    setIgurl('');
+                    setUrl2('');
                     document.getElementById('file').value='';
                     setImageError('');
                     setUploadError('');
@@ -106,9 +106,9 @@ export const AddProducts = () => {
                 <input type="text" className='form-control' required
                 onChange={(e)=>setSize(e.target.value)} value={size}></input>
                 <br></br>
-                <label id='label1'>Instagram Url</label>
+                <label id='label1'>Url2 for front image</label>
                 <input type="text" className='form-control' required
-                onChange={(e)=>setIgurl(e.target.value)} value={igurl}></input>
+                onChange={(e)=>setUrl2(e.target.value)} value={url2}></input>
                 <br></br>
                 <label id='label1'>Upload Product Image</label>
                 <input type="file" id="file" className='form-control' multiple required

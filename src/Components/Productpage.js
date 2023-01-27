@@ -3,7 +3,7 @@ import {Navbar} from './Navbar'
 import { auth,fs } from '../Config/config';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './styles.css';
-
+import ImageGallery from 'react-image-gallery';
 
 export default function Productpage({product}){
     function GetUserUid(){
@@ -119,6 +119,25 @@ export default function Productpage({product}){
         console.log(prod)
     }
 
+    function ShowImg(){
+        if (prod.url2 ==""){
+            return(<img className='prodimg'src={prod.url} alt="product-img"/>)
+        }else{
+            const images = [
+                {
+                  original: prod.url2,
+                  thumbnail: prod.url2,
+                },
+                {
+                  original: prod.url,
+                  thumbnail: prod.url,
+                },
+
+              ];
+              return <ImageGallery items={images} />;
+        }
+    }
+
 
     
     const [Text, setText] = useState("ADD TO CART");
@@ -129,8 +148,7 @@ export default function Productpage({product}){
             <Navbar user={user} totalProducts={totalProducts}></Navbar>
             <div className='productsbox'>
             <div className='productPrev'>
-                <img className='prodimg'src={prod.url} alt="product-img"/>
-
+                <ShowImg/>
             </div>
             <div className='productData'>
             <h1 className='title'>
